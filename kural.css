@@ -1,0 +1,122 @@
+/*Credits: Dynamic Drive CSS Library */
+/*URL: http://www.dynamicdrive.com/style/ */
+
+#modernbricksmenu
+{
+    /* padding:    0; */
+    /* background: transparent; */
+    position:   absolute;
+    left:        20%;
+    top:         50px;
+    width:       616px; /* 600 (a.width (8 * 75) + li.margin (8 * 2) */
+}
+
+#modernbricksmenu ul 
+{
+    font: bold 11px Arial;
+    list-style: none;
+    width:   100%;
+    float:   left;
+    margin:  0;
+    padding: 0;
+}
+
+#modernbricksmenu li
+{
+    float:   left;
+    display: inline;
+    margin:     0 2px 0 0;
+    padding:    0;
+    text-transform:uppercase;
+    text-align: center;
+}
+
+#modernbricksmenu a
+{
+    float:      left;
+    color:      white;
+    margin: 0 0px 0 0;      /* Margin between each menu item */
+    padding: 5px 0px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    background-color: black; /*Default menu color*/
+    border-bottom: 1px solid white;
+    width:       75px;
+}
+
+/* Menu hover bgcolor */
+/*
+#modernbricksmenu a:hover
+{
+    background-color: gray; 
+    background-color: #D25A0B;
+    border-color: #D25A0B;
+}
+*/
+
+/* default tab setting is done based on k<id> here!! */
+#modernbricksmenu #k0 a
+{   /*currently selected tab*/
+    background-color: #D25A0B; /*Brown color theme*/ 
+    border-color: #D25A0B; /*Brown color theme*/ 
+}
+
+#modernbricksmenuline{
+    clear: both;
+    background: #D25A0B; /*Brown color theme*/ 
+    position:   relative;
+    left:   0px;
+    top:    0px;
+    line-height: 3px;
+    width:  100%;
+}
+
+.kpos_abs {
+    position: relative;
+    left:    0px;
+    top:     0px;
+    width:  100%;
+}
+
+.kcon {
+    position: relative;
+    left:     0px;
+    width:   100%;
+}
+
+.ktext_rel {
+    position: relative;
+}
+
+#reset
+{
+    float:      inherit;
+    display:    inline;
+    color:      inherit;
+    margin: 0;         
+    padding: 0;
+    letter-spacing:   inherit;
+    background-color: inherit; /*Default menu color*/
+    border-bottom:    inherit;
+    width:            100%;
+    text-decoration:  none;
+}
+
+#reset a
+{
+    float:      none;
+    display:    inline;
+    color:      white;
+    margin: 0;         
+    padding: 0;
+    background-color: white; /*Default menu color*/
+    border-bottom:    inherit;
+    width:            auto;
+    text-decoration:  underline;
+}
+
+#reset a:link       { color: blue }
+#reset a:visited    { color: red }
+#reset a:active     { color: lime }
+
+

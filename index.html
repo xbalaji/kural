@@ -1,0 +1,235 @@
+<html>
+<head>
+<!-- ThiruKural with meanings developed by Balaji Venkataraman -->
+<title> Balaji Venkataraman(xbalaji)'s random kural page </title>
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<link rel="stylesheet" type="text/css" href="kural.css" />
+<link rel="shortcut icon" href="kural.ico">
+<link rel="icon" href="kural.gif" type="image/gif">
+
+<script type="text/javascript">
+var DEBUG_URL = 0;
+var kURL = "http://" + document.location.host + "/kural.php";
+var cTabId = 0;
+
+function updateNtimes ()
+{
+    var cn = "tn";
+    var ntime  = 0;
+    if (document.cookie.length > 0) {
+        cs = document.cookie.indexOf(cn + "=");
+        if (cs != -1) {
+            cs = cs + cn.length + 1; 
+            ce = document.cookie.indexOf(";", cs);
+            if (ce == -1) {
+                ce = document.cookie.length;
+            }
+            ntime = unescape(document.cookie.substring(cs, ce));
+        } 
+    }
+    ++ntime;
+    document.cookie = cn + "="  + escape(ntime);
+    ktime = document.getElementById("kt");
+    ktime.innerHTML = ntime;
+}
+
+function genkURL ()
+{
+    var rn = Math.ceil(Math.random() * 1000); 
+    return (kURL + "?rn=" + rn);
+}
+
+function updateAcount ()
+{
+    var rn = Math.ceil(Math.random() * 1000); 
+    var u_url = "kcount.php?u=1&rn" + rn;
+    kcount = document.getElementById("kc");
+    
+    if (window.XMLHttpRequest) {
+        upd = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+        upd = new ActiveXObject("Microsoft.XMLHTTP");
+    } else {
+        kcount.innerHTML = 1024;
+        return;
+    }
+    upd.onreadystatechange = function () {
+        if (upd.readyState == 4) {
+            if (upd.status == 200) {
+                kcount.innerHTML = upd.responseText;
+            } else {
+                kcount.innerHTML = "NaN1";
+            }
+        } else {
+            kcount.innerHTML = "NaN2";
+        }
+    };
+    upd.open("GET", u_url, true);
+    upd.send(null);
+}
+
+function mailme ()
+{
+    var name = "Balaji Venkataraman"
+    var link = name + " <xbalaji@gmail.com>";
+    var sub  = "Reg: " + document.location.href;
+
+    var cdate = new Date();
+    var body = cdate.toString();
+    document.write('<a href="mailto:' + link + '?subject=' + sub +
+                   '&body=' + body + '">' + name + '</a>');
+
+}
+
+function showKural (k_num, reload)
+{ 
+    var k_id = "k" + (k_num == 8 ? 7 : k_num);
+    var k_list = document.getElementById("k_tabs");
+    for (ix = 0; ix < k_list.childNodes.length; ix++) {
+        var ktlelem = k_list.childNodes[ix];
+        if (ktlelem.nodeName == "LI") {
+            if (ktlelem.id == k_id) {
+                ktlelem.childNodes[0].style.backgroundColor = "#D25A0B";
+                ktlelem.childNodes[0].style.borderColor = "#D25A0B";
+            } else {
+                ktlelem.childNodes[0].style.backgroundColor = "black";
+                ktlelem.childNodes[0].style.borderColor = "white";
+            }
+        }
+    }
+    kmork = document.getElementById("k_mork");
+    if (k_num == 0) {
+        kmork.innerHTML = "Meaning";
+    } else {
+        kmork.innerHTML = "Kural";
+    }
+
+    /* set the current tab id */
+    cTabId = k_num;
+
+    var kurl  = genkURL() + "&ux=" + k_num;
+
+    if (reload == 1) { kurl += "&rx=1"; }
+    if (document.k_form.porul.checked) { kurl += "&mx=1"; }
+
+    kimg = document.getElementById("k_img");
+    kimg.src = kurl;
+
+    if (DEBUG_URL) {
+        kurl += "&tab_id=" + k_num;
+    }
+    ktext = document.getElementById("k_text");
+    ktext.innerHTML= kurl;
+
+    if (reload == 1) {
+        updateNtimes();
+        updateAcount();
+    }
+    updateLaddr();
+}
+
+function unCheckboxes ()
+{
+    document.k_form.porul.checked = false;
+    document.k_form.lcbox.checked = false;
+}
+
+function updateLaddr ()
+{
+
+    kaddr = document.getElementById("k_addr");
+    ktext = document.getElementById("k_text");
+
+    if (document.k_form.lcbox.checked) {
+        kaddr.style.visibility = "visible";
+        kaddr.value = ktext.innerHTML.replace(/&amp;/gi, "&");
+    } else {
+        kaddr.style.visibility = "hidden";
+    }
+}
+
+function initUrls ()
+{
+    ktext = document.getElementById("k_text");
+    ktext.innerHTML= genkURL();
+}
+
+</script>
+</head>
+
+<body onload="updateNtimes();updateAcount();unCheckboxes();initUrls();">
+<span id="modernbricksmenu">
+<center><h1>Random Thirukural page</h1></center>
+<ul id="k_tabs">
+<li id="k0"><a onmouseover="showKural(0,0)" >Kural  </a></li>
+<li id="k1"><a onmouseover="showKural(1,0)" >Porul 1</a></li>
+<li id="k2"><a onmouseover="showKural(2,0)" >Porul 2</a></li>
+<li id="k3"><a onmouseover="showKural(3,0)" >Porul 3</a></li>
+<li id="k4"><a onmouseover="showKural(4,0)" >Porul 4</a></li>
+<li id="k5"><a onmouseover="showKural(5,0)" >Porul 5</a></li>
+<li id="k6"><a onmouseover="showKural(6,0)" >Porul 6</a></li>
+<li id="k7"><a onmouseover="showKural(8,0)" >Porul 7</a></li>
+</ul>                                 
+<div id="modernbricksmenuline">&nbsp;</div>
+<span><img id="k_img" class="kpos_abs" src="kural.php" /></span>
+
+<p />
+<form name="k_form">
+<span>
+<table border=0 cellspacing=0 cellpadding=0 width=100%>
+<tr>
+<td valign=center align=left width="20%">
+<input name="porul" type=checkbox name="porul" onclick="showKural(cTabId, 0)">
+<span id="k_mork">Meaning</span></input>
+</td>
+
+<td valign=center align=center width=60%>
+<input id="k_addr" type="text" readonly="readonly" size="60" 
+style="background-color: rgb(232, 236, 249);visibility:hidden;" 
+onclick="document.getElementById('k_addr').select()" value="" />
+</td>
+
+<td valign=center align=right width=20%>
+Show link<input type=checkbox name="lcbox" onclick="updateLaddr()"></input>
+</td>
+</table>
+</span>
+
+<span id="reset">
+
+<center>
+<p><span id="k_text" class="ktext_rel" style="visibility:hidden"></span><p>
+<input name="relbut" type="button" value="New" onclick="showKural(cTabId, 1)" />
+</form>
+
+<br/><br/>
+This page has been visited <b><font color=brown>
+<span id="kc">&nbsp;</span></font></b>
+times and you've accessed it <b><font color=green>
+<span id="kt"> &nbsp;</span></font></b> time(s).</b>
+<br>For additional information, 
+email <script language="javascript" type="text/javascript">mailme();</script>
+</span>
+
+<br>
+<html>
+    <iframe src="http://www.facebook.com/plugins/like.php?href=http://apps.facebook.com/randomkural" scrolling="no" frameborder="0" style="border:none; width:450px; height:80px">
+    </iframe>
+<br>
+
+<!-- pay pal information : begin -->
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif" border="0" name="submit" alt="">
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+<!-- pay pal information : end   -->
+
+</span> <!-- reset -->
+</center>
+</body>
+</html>
