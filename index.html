@@ -11,8 +11,9 @@
 
 <script type="text/javascript">
 var DEBUG_URL = 0;
-var kURL = "http://" + document.location.host + "/kural.php";
-var kURL = "https://testkural.000webhostapp.com/kural.php";
+// var kURL = "http://" + document.location.host + "/kural.php";
+var hosting_site = "http://testkural.000webhostapp.com"
+var kURL = hosting_site + "/kural.php";
 var cTabId = 0;
 
 function updateNtimes ()
@@ -45,7 +46,7 @@ function genkURL ()
 function updateAcount ()
 {
     var rn = Math.ceil(Math.random() * 1000); 
-    var u_url = "kcount.php?u=1&rn" + rn;
+    var u_url = hosting_site + "kcount.php?u=1&rn" + rn;
     kcount = document.getElementById("kc");
     
     if (window.XMLHttpRequest) {
@@ -60,6 +61,8 @@ function updateAcount ()
         if (upd.readyState == 4) {
             if (upd.status == 200) {
                 kcount.innerHTML = upd.responseText;
+                upd.open("GET", u_url, true);
+                upd.send(null);
             } else {
                 kcount.innerHTML = "NaN1";
             }
@@ -67,8 +70,8 @@ function updateAcount ()
             kcount.innerHTML = "NaN2";
         }
     };
-    upd.open("GET", u_url, true);
-    upd.send(null);
+    // upd.open("GET", u_url, true);
+    // upd.send(null);
 }
 
 function mailme ()

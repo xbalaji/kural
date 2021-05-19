@@ -33,11 +33,14 @@ define("MAX_KURAL", "29");
     $mx = (isset($kx) ?  $kx : $mx);    /* set meaning flag */
 
     /* urai number */
-    $ux = 0;
+    // $ux = 0;
     $ux_set = 0;
     if (isset($_REQUEST["ux"])) {
         $ux_set = 1;
         $ux = explode(",", $_REQUEST["ux"]);
+        if (!$ux[0]) {
+          $ux_set = 0;
+        }
     }
 
     /* iframe ? */
