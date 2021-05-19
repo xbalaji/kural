@@ -1,4 +1,4 @@
-<?
+<?php
 if (!extension_loaded("gd")) {
     if (!dl("gd.so")) {
         exit;
@@ -6,7 +6,7 @@ if (!extension_loaded("gd")) {
 }
 
 $DBG = 0;
-$dir_path  = "/home/httpd/kural/png";
+$dir_path  = "./kural/png";
 
 function d_print ($string)
 {
@@ -15,7 +15,8 @@ function d_print ($string)
 }
 
 
-define("MAX_KURAL", "1330");
+//define("MAX_KURAL", "1330");
+define("MAX_KURAL", "29");
 
     /* reload   */
     $rx = (isset($_REQUEST["rx"])) ?  $_REQUEST["rx"]:  0;
@@ -32,6 +33,7 @@ define("MAX_KURAL", "1330");
     $mx = (isset($kx) ?  $kx : $mx);    /* set meaning flag */
 
     /* urai number */
+    $ux = 0;
     $ux_set = 0;
     if (isset($_REQUEST["ux"])) {
         $ux_set = 1;
@@ -42,9 +44,9 @@ define("MAX_KURAL", "1330");
     $ix = (isset($_REQUEST["ix"])) ?  $_REQUEST["ix"]:  0;
 
     if ($DBG) d_print("<br/>rx: $rx, mx: $mx, kx: $kx, ix: $ix");
-    for ($jx = 0; $jx < sizeof($ux); ++$jx) {
-        if ($DBG) d_print("<br/>jx: $jx, ux[$jx]: $ux[$jx] ");
-    }
+    // for ($jx = 0; $jx < sizeof($ux); ++$jx) {
+    //    if ($DBG) d_print("<br/>jx: $jx, ux[$jx]: $ux[$jx] ");
+    // }
     if ($DBG) $ix = 1;
     if ($DBG) d_print("<br/>setting ix: $ix\n");
 
