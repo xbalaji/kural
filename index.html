@@ -61,8 +61,6 @@ function updateAcount ()
         if (upd.readyState == 4) {
             if (upd.status == 200) {
                 kcount.innerHTML = upd.responseText;
-                upd.open("GET", u_url, true);
-                upd.send(null);
             } else {
                 kcount.innerHTML = "NaN1";
             }
@@ -70,8 +68,8 @@ function updateAcount ()
             kcount.innerHTML = "NaN2";
         }
     };
-    // upd.open("GET", u_url, true);
-    // upd.send(null);
+    upd.open("GET", u_url, true);
+    upd.send(null);
 }
 
 function mailme ()
@@ -163,7 +161,7 @@ function initUrls ()
 </script>
 </head>
 
-<body onload="updateNtimes();updateAcount();unCheckboxes();initUrls();">
+<body onload="updateNtimes();updateAcount();unCheckboxes();initUrls();showKural(0,0)">
 <span id="modernbricksmenu">
 <center><h1>Random Thirukural page</h1></center>
 <ul id="k_tabs">
