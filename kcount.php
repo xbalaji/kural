@@ -9,5 +9,7 @@
         fwrite($fp, $count);
         fclose($fp);
     }
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Headers: *");
     print $count;
 ?> 
