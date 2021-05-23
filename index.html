@@ -88,7 +88,7 @@ function mailme ()
 
 function showKural (k_num, reload)
 { 
-    var k_id = "k" + (k_num == 8 ? 7 : k_num);
+    var k_id = "k" + k_num; // (k_num == 8 ? 7 : k_num);
     var k_list = document.getElementById("k_tabs");
     for (ix = 0; ix < k_list.childNodes.length; ix++) {
         var ktlelem = k_list.childNodes[ix];
@@ -173,7 +173,7 @@ function initUrls ()
 <li id="k4"><a onmouseover="showKural(4,0)" >Porul 4</a></li>
 <li id="k5"><a onmouseover="showKural(5,0)" >Porul 5</a></li>
 <li id="k6"><a onmouseover="showKural(6,0)" >Porul 6</a></li>
-<li id="k7"><a onmouseover="showKural(8,0)" >Porul 7</a></li>
+<li id="k7"><a onmouseover="showKural(7,0)" >Porul 7</a></li>
 </ul>                                 
 <div id="modernbricksmenuline">&nbsp;</div>
 <span><img id="k_img" class="kpos_abs" src="kural.php" /></span>
