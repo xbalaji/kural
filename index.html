@@ -11,8 +11,7 @@
 
 <script type="text/javascript">
 var DEBUG_URL = 0;
-// var kURL = "http://" + document.location.host + "/kural.php";
-var hosting_site = "https://testkural.000webhostapp.com"
+var hosting_site = "http://kural.great-site.net";
 var kURL = hosting_site + "/kural.php";
 var cTabId = 0;
 
@@ -88,7 +87,7 @@ function mailme ()
 
 function showKural (k_num, reload)
 { 
-    var k_id = "k" + k_num; // (k_num == 8 ? 7 : k_num);
+    var k_id = "k" + k_num;
     var k_list = document.getElementById("k_tabs");
     for (ix = 0; ix < k_list.childNodes.length; ix++) {
         var ktlelem = k_list.childNodes[ix];
@@ -156,7 +155,7 @@ function updateLaddr ()
 function initUrls ()
 {
     ktext = document.getElementById("k_text");
-    ktext.innerHTML= genkURL();
+    ktext.innerHTML = genkURL();
 }
 
 </script>
