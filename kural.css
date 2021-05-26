@@ -41,7 +41,7 @@
     letter-spacing: 1px;
     background-color: black; /*Default menu color*/
     border-bottom: 1px solid white;
-    width:       100px;
+    width:       162px; /* 100px; */
 }
 
 /* Menu hover bgcolor */
