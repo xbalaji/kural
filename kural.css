@@ -8,7 +8,7 @@
     position:   absolute;
     left:        20%;
     top:         50px;
-    width:       832px; /* 800 (a.width (8 * 100) + li.margin (8 * 4) */
+    width:       616px; /* 600 (a.width (8 * 75) + li.margin (8 * 2) */
 }
 
 #modernbricksmenu ul 
@@ -25,7 +25,7 @@
 {
     float:   left;
     display: inline;
-    margin:     0 4px 0 0;
+    margin:     0 2px 0 0;
     padding:    0;
     text-transform:uppercase;
     text-align: center;
@@ -41,7 +41,7 @@
     letter-spacing: 1px;
     background-color: black; /*Default menu color*/
     border-bottom: 1px solid white;
-    width:       162px; /* 100px; */
+    width:       75px;
 }
 
 /* Menu hover bgcolor */
