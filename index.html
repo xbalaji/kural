@@ -11,10 +11,8 @@
 
 <script type="text/javascript">
 var DEBUG_URL = 0;
-// var hosting_site = "//" + (location.host === "xbalaji.github.io" ? "testkural.000webhostapp.com" : location.host);
 // var hosting_site = "//" + (location.host === "xbalaji.github.io" ? "kural.atwebpages.com" : location.host);
 var hosting_site = "http://" + (location.host === "xbalaji.github.io" ? "kural.atwebpages.com" : location.host);
-// var hosting_site = "http://kural.atwebpages.com";
 
 var kURL = hosting_site + "/kural.php";
 var cTabId = 0;
@@ -40,40 +38,18 @@ function updateNtimes ()
     ktime.innerHTML = ntime;
 }
 
-function genkURL ()
-{
-    var rn = Math.ceil(Math.random() * 1000);
-    return (kURL + "?rn=" + rn);
-}
-
 function updateAcount ()
 {
     var rn = Math.ceil(Math.random() * 1000);
     var u_url = hosting_site + "/kcount.php?u=1&rn=" + rn;
-    kcount = document.getElementById("kc");
+    kcimg = document.getElementById("kc");
+    kcimg.src = u_url
+}
 
-    if (window.XMLHttpRequest) {
-        upd = new XMLHttpRequest();
-    } else if (window.ActiveXObject) {
-        upd = new ActiveXObject("Microsoft.XMLHTTP");
-    } else {
-        kcount.innerHTML = 1024;
-        return;
-    }
-    upd.onreadystatechange = function () {
-        if (upd.readyState === XMLHttpRequest.DONE) {
-            var status = upd.status
-            if (status === 0 || (status >= 200 && status < 400)) {
-                kcount.innerHTML = upd.responseText;
-            } else {
-                kcount.innerHTML = "NaN1";
-            }
-        } else {
-            kcount.innerHTML = "NaN2";
-        }
-    };
-    upd.open("GET", u_url, true);
-    upd.send(null);
+function genkURL ()
+{
+    var rn = Math.ceil(Math.random() * 1000);
+    return (kURL + "?rn=" + rn);
 }
 
 function mailme ()
@@ -211,13 +187,12 @@ Show link<input type=checkbox name="lcbox" onclick="updateLaddr()"></input>
 </form>
 
 <br/><br/>
-This page has been visited <b><font color=brown>
-<span id="kc">&nbsp;</span></font></b>
+<span id="kctxt"> This page has been visited &nbsp<img id="kc" class="kc_abs" src="kcount.php" />
 times and you've accessed it <b><font color=green>
 <span id="kt"> &nbsp;</span></font></b> time(s).</b>
 <br>For additional information,
 email <script language="javascript" type="text/javascript">mailme();</script>
-</span>
+</span></span>
 
 <br>
 <html>

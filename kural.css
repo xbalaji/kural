@@ -78,6 +78,16 @@
     width:  100%;
 }
 
+.kc_abs {
+    vertical-align: middle;
+    position: relative;
+}
+
+.kctxt {
+    display: inline-block;
+    text-align: center;
+}
+
 .kcon {
     position: relative;
     left:     0px;
