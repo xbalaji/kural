@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Detect Browser in JavaScript</title>
+</head>
+  
+<script type="text/javascript">
+function fnBrowserName()
+{
+  let browserName;
+  let agent = window.navigator.userAgent.toLowerCase();
+
+  console.log(agent);
+  if (agent.indexOf("edge") > -1) {
+    browserName = "MS Edge";
+  } else if (agent.indexOf("edg/") > -1) {
+    browserName = "Edge ( chromium based)";
+  } else if (agent.indexOf("opr") > -1 && !!window.opr) {
+    browserName = "Opera";
+  } else if (agent.indexOf("chrome") > -1 && !!window.chrome) {
+    browserName = "Chrome";
+  } else if (agent.indexOf("trident") > -1) {
+    browserName = "MS IE";
+  } else if (agent.indexOf("firefox") > -1) {
+    browserName = "Mozilla Firefox";
+  } else if (agent.indexOf("mozilla") > -1) {
+    browserName = "Mozilla Firefox";
+  } else if (agent.indexOf("safari") > -1) {
+    browserName = "Safari";
+  } else {
+    browserName = "other";
+  }
+  console.log(browserName);
+  document.querySelector("h1").innerText="You are using "+ browserName +" browser";  
+}
+</script>
+
+<body onload="fnBrowserName()">
+<h1></h1>
+</body>
+</html>

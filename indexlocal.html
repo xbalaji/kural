@@ -16,6 +16,20 @@ var hosting_site = "http://kural.atwebpages.com";
 var kURL = hosting_site + "/kural.php";
 var cTabId = 0;
 
+function checkBrowser ()
+{
+  let warn = false;
+  let agent = window.navigator.userAgent.toLowerCase();
+  if (agent.indexOf("firefox") > -1) {
+    warn = false;
+  } else {
+    warn = true;
+  }
+  if (warn == true) {
+    document.getElementById("w1").innerHTML="<b class='w1b'>Allow <a id='w1a' href='https://experienceleague.adobe.com/docs/target/using/experiences/vec/troubleshoot-composer/mixed-content.html?lang=en'>mixed content</a> in the browser for proper viewing</b><br/><br/>";
+  }
+}
+
 function updateNtimes ()
 {
     var cn = "tn";
@@ -140,18 +154,19 @@ function initUrls ()
 </script>
 </head>
 
-<body onload="updateNtimes();updateAcount();unCheckboxes();initUrls();showKural(0,0);">
+<body onload="checkBrowser();updateNtimes();updateAcount();unCheckboxes();initUrls();showKural(0,0);">
 <span id="modernbricksmenu">
 <center><h1>Random Thirukural page</h1></center>
+<div id="w1" align=center></div>
 <ul id="k_tabs">
-<li id="k0"><a referrerpolicy=origin onmouseover="showKural(0,0)" >Kural  </a></li>
-<li id="k1"><a referrerpolicy=origin onmouseover="showKural(1,0)" >Porul 1</a></li> <!-- comment removed -->
-<li id="k2"><a referrerpolicy=origin onmouseover="showKural(2,0)" >Porul 2</a></li>
-<li id="k3"><a referrerpolicy=origin onmouseover="showKural(3,0)" >Porul 3</a></li>
-<li id="k4"><a referrerpolicy=origin onmouseover="showKural(4,0)" >Porul 4</a></li> <!-- comment removed -->
-<li id="k5"><a referrerpolicy=origin onmouseover="showKural(5,0)" >Porul 5</a></li>
-<li id="k6"><a referrerpolicy=origin onmouseover="showKural(6,0)" >Porul 6</a></li>
-<li id="k7"><a referrerpolicy=origin onmouseover="showKural(7,0)" >Porul 7</a></li> <!-- comment removed -->
+<li id="k0"><a onmouseover="showKural(0,0)" >Kural  </a></li>
+<li id="k1"><a onmouseover="showKural(1,0)" >Porul 1</a></li> <!-- comment removed -->
+<li id="k2"><a onmouseover="showKural(2,0)" >Porul 2</a></li>
+<li id="k3"><a onmouseover="showKural(3,0)" >Porul 3</a></li>
+<li id="k4"><a onmouseover="showKural(4,0)" >Porul 4</a></li> <!-- comment removed -->
+<li id="k5"><a onmouseover="showKural(5,0)" >Porul 5</a></li>
+<li id="k6"><a onmouseover="showKural(6,0)" >Porul 6</a></li>
+<li id="k7"><a onmouseover="showKural(7,0)" >Porul 7</a></li> <!-- comment removed -->
 </ul>
 <div id="modernbricksmenuline">&nbsp;</div>
 <span><img id="k_img" class="kpos_abs" src="kural.php" /></span>
@@ -182,7 +197,7 @@ Show link<input type=checkbox name="lcbox" onclick="updateLaddr()"></input>
 
 <center>
 <p><span id="k_text" class="ktext_rel" style="visibility:hidden"></span><p>
-<input name="relbut" type="button" style="width:150px; font-size: 24px;" value="New" onclick="showKural(cTabId, 1)" />
+<input name="relbut" type="button" style="width:150px; font-size: 24px;" value="New" onclick="checkBrowser();showKural(cTabId, 1)" />
 </form>
 
 <br/><br/>

@@ -31,7 +31,8 @@
     text-align: center;
 }
 
-#modernbricksmenu a
+/* #modernbricksmenu a */
+#k_tabs > li > a
 {
     float:      left;
     color:      white;
@@ -55,10 +56,16 @@
 */
 
 /* default tab setting is done based on k<id> here!! */
-#modernbricksmenu #k0 a
+/* #modernbricksmenu #k0 a */
+#k0 > a
 {   /*currently selected tab*/
     background-color: #D25A0B; /*Brown color theme*/ 
     border-color: #D25A0B; /*Brown color theme*/ 
+}
+
+#w1a
+{
+  color: red;
 }
 
 #modernbricksmenuline{
@@ -129,4 +136,6 @@
 #reset a:visited    { color: red }
 #reset a:active     { color: lime }
 
-
+.w1b {
+  font-size: 150%;
+}
